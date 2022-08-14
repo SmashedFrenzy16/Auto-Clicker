@@ -46,6 +46,12 @@ class clickMouse(threading.Thread):
                 while self.running:
 
                     mouse.click(self.button)
+                    
+                    time.sleep(self.delay)
+                    
+                time.sleep(0.01)
+                    
+                    
 
 
 
