@@ -31,11 +31,11 @@ class clickMouse(threading.Thread):
 
         def stopClicking(self):
 
-            self.running = True
+            self.running = False
 
         def exit(self):
 
-            self.stop_clicking()
+            self.stopClicking()
 
             self.program_running = False
 
@@ -52,11 +52,32 @@ class clickMouse(threading.Thread):
                 time.sleep(0.1)
 
 mouse = Controller()
+
+click_thread = clickMouse(delay, button)
+
+click_thread.start()
+
+def on_press(key):
+
+    if key == start_stop_key:
+
+        if click_thread.running:
+
+            click_thread.stopClicking()
+        
+        else:
+
+            click_thread.startClicking()
+
+    elif key == stop_key:
+
+        click_thread.exit()
+
+        Listener.stop()
                     
-                    
-
-
-
+with Listener(on_press=on_press) as listener:
+    
+    listener.join()
 
 
 
