@@ -48,8 +48,10 @@ class clickMouse(threading.Thread):
                     mouse.click(self.button)
                     
                     time.sleep(self.delay)
-                    
-                time.sleep(0.01)
+
+                time.sleep(0.1)
+
+mouse = Controller()
                     
                     
 
