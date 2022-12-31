@@ -1,2 +1,2 @@
 # Auto Clicker
-This is an auto clicker made in Python.
+This is an auto clicker made in Python. Run
